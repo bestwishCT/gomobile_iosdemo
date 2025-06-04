@@ -24,6 +24,8 @@ jobs:
       run: |
         go install golang.org/x/mobile/cmd/gomobile@master
         go install golang.org/x/mobile/cmd/gobind@master
+        go get golang.org/x/mobile/bind
+        go get golang.org/x/mobile/bind/objc
         export PATH=$PATH:$(go env GOPATH)/bin
         gomobile init
     
