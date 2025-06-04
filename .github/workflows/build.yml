@@ -40,7 +40,7 @@ jobs:
         zip -r ../release/Hello.framework.zip Hello.framework
     
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Hello.framework
         path: release/Hello.framework.zip 
