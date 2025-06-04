@@ -26,6 +26,8 @@ jobs:
         cd mobile
         go install ./cmd/gomobile
         go install ./cmd/gobind
+        go install ./bind
+        go install ./bind/objc
         cd ..
         export PATH=$PATH:$(go env GOPATH)/bin
         gomobile init
