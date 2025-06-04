@@ -4,7 +4,7 @@ import "C"
 
 //export SayHello
 func SayHello() string {
-	return "Hello Ios from Go!"
+	return "Hello Ios from Go Go!"
 }
 
 //export Add
