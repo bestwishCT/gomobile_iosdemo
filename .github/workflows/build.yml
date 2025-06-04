@@ -22,10 +22,11 @@ jobs:
     
     - name: Install gomobile
       run: |
-        go install golang.org/x/mobile/cmd/gomobile@master
-        go install golang.org/x/mobile/cmd/gobind@master
-        go get golang.org/x/mobile/bind
-        go get golang.org/x/mobile/bind/objc
+        git clone https://github.com/golang/mobile.git
+        cd mobile
+        go install ./cmd/gomobile
+        go install ./cmd/gobind
+        cd ..
         export PATH=$PATH:$(go env GOPATH)/bin
         gomobile init
     
