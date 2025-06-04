@@ -22,8 +22,8 @@ jobs:
     
     - name: Install gomobile
       run: |
-        go install golang.org/x/mobile/cmd/gomobile@v0.0.0-20240213143359-d2f2d6f52d7f
-        go install golang.org/x/mobile/cmd/gobind@v0.0.0-20240213143359-d2f2d6f52d7f
+        go install golang.org/x/mobile/cmd/gomobile@v0.0.0-20231219183710-5c3d23842e1a
+        go install golang.org/x/mobile/cmd/gobind@v0.0.0-20231219183710-5c3d23842e1a
         export PATH=$PATH:$(go env GOPATH)/bin
         gomobile init
     
