@@ -28,7 +28,7 @@ jobs:
     - name: Build iOS Framework
       run: |
         cd go/hello
-        gomobile bind -target=ios -o ../../build/Hello.framework github.com/yourusername/gomobile_iosdemo/go/hello
+        gomobile bind -target=ios -o ../../build/Hello.xcframework github.com/yourusername/gomobile_iosdemo/go/hello
     
     - name: Create Release Directory
       run: |
@@ -37,10 +37,10 @@ jobs:
     - name: Package Framework
       run: |
         cd build
-        zip -r ../release/Hello.framework.zip Hello.framework
+        zip -r ../release/Hello.xcframework.zip Hello.xcframework
     
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Hello.framework
-        path: release/Hello.framework.zip 
+        name: Hello.xcframework
+        path: release/Hello.xcframework.zip 
