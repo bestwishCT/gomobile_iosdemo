@@ -22,14 +22,25 @@ jobs:
     
     - name: Install gomobile
       run: |
-        go mod download
+        # 设置 GOPATH
+        export GOPATH=$HOME/go
+        export PATH=$PATH:$GOPATH/bin
+        
+        # 安装 gomobile 及其依赖
         go install golang.org/x/mobile/cmd/gomobile@latest
         go install golang.org/x/mobile/cmd/gobind@latest
-        export PATH=$PATH:$(go env GOPATH)/bin
+        
+        # 确保所有依赖都被下载
+        go get -d golang.org/x/mobile/bind
+        go get -d golang.org/x/mobile/bind/objc
+        
+        # 初始化 gomobile
         gomobile init
     
     - name: Build iOS Framework
       run: |
+        # 确保 PATH 设置正确
+        export PATH=$PATH:$(go env GOPATH)/bin
         gomobile bind -target=ios -o build/Hello.xcframework github.com/yourusername/gomobile_iosdemo/hello
     
     - name: Create Release Directory
