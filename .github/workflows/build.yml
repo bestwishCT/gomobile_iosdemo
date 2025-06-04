@@ -30,9 +30,7 @@ jobs:
     
     - name: Build iOS Framework
       run: |
-        cd go/hello
-        export PATH=$PATH:$(go env GOPATH)/bin
-        gomobile bind -target=ios -o ../../build/Hello.xcframework github.com/yourusername/gomobile_iosdemo/go/hello
+        gomobile bind -target=ios -o build/Hello.xcframework github.com/yourusername/gomobile_iosdemo/hello
     
     - name: Create Release Directory
       run: |
